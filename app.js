@@ -1,7 +1,9 @@
 require("dotenv").config();
 
+const { query } = require("express");
 const express = require("express");
 const hbs = require("hbs");
+
 
 // require spotify-web-api-node package here:
 const SpotifyWebApi = require("spotify-web-api-node");
@@ -31,18 +33,20 @@ app.get("/", (req, res, next) => {
   res.render("index");
 });
 
+//Step 2 | Display results for artist search
 app.get("/artist-search", (req, res, next) => {
   const { name } = req.query;
-
-  spotifyApi
-    .searchArtists(name)
-    .then((data) => {
-      //console.log("The received data from the API: ", data.body);
-      // ----> 'HERE WHAT WE WANT TO DO AFTER RECEIVING THE DATA FROM THE API'
-    })
-    .catch((err) =>
-      console.log("The error while searching artists occurred: ", err)
-    );
+  //console.log(req.query)
+    spotifyApi
+      .searchArtists(name)
+      .then((data) => {
+        const artist = data.body.artists.items;
+        //console.log(artist)
+        res.render("artist-search-results", { artist });
+      })
+      .catch((err) =>
+        console.log("The error while searching artists occurred: ", err)
+      );
 });
 
 app.listen(3000, () =>
