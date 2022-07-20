@@ -1,0 +1,9 @@
+{{#each tracks as |track|}}
+  <div id="tracks-container">
+        <h3>{{track.name}}</h3>
+        <audio controls>
+            <source src="{{track.preview_url}}" type="audio/mpeg">
+        </audio>
+        <a href="/">Go Back to Search</a>
+    </div>
+{{/each}}

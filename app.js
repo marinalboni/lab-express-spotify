@@ -66,6 +66,21 @@ app.get('/albums/:artistId', (req, res, next) => {
   );
 });
 
+// Iteration 5 | View Tracks
+app.get('/tracks/:albumsId', (req, res, next) => {
+  const { albumsId } = req.params;
+   //console.log(req.params)
+  spotifyApi
+  .getAlbumTracks(albumsId,{ limit: 50, offset: 1 })
+  .then((data) => {
+    const tracks = data.body.items;
+    console.log(tracks)
+    res.render("tracks", { tracks });
+  })
+  .catch((err) =>
+    console.log("The error while searching tracks occurred: ", err)
+  );
+});
 
 
 app.listen(3000, () =>
