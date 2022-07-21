@@ -1,11 +1,14 @@
-<div class="artists-grid">
-    {{#each artist}}
-        <div class="artist-card">
-            <img src="{{this.images.0.url}}" alt="album" />
-            <div class="card-text">
-                <h5>{{this.name}}</h5>
-                <a href="/albums/{{this.id}}" class="btn btn-danger">View Albums</a>
-            </div>
-        </div>
-    {{/each}}
+<div class="background">
+    <h1 class="title">ARTISTS</h1>
+	<div class="artists-grid">
+		{{#each artist}}
+			<div class="artist-card">
+				<img src="{{this.images.0.url}}" alt="album" />
+				<div class="card-text">
+					<h5>{{this.name}}</h5>
+					<a href="/albums/{{this.id}}" class="btn btn-danger">View Albums</a>
+				</div>
+			</div>
+		{{/each}}
+	</div>
 </div>

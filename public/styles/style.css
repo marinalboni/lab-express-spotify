@@ -74,6 +74,7 @@ body::-webkit-scrollbar {
     border-radius: 4px;
     padding: 10px;
     margin: 10px;
+	background-color: white;
 }
 
 .artist-card img {
@@ -86,4 +87,18 @@ body::-webkit-scrollbar {
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+}
+
+.background{
+	background-color: #323030e6;
+}
+
+.title{
+	text-align: center;
+	padding-top: 20px;
+	color: white;
+	letter-spacing: 3px;
+	font-size: 60px;
+	font-weight: 400;
+
 }
